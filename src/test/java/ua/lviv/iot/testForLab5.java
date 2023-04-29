@@ -1,38 +1,72 @@
 package ua.lviv.iot;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * Unit test for simple App.
- */
-public class testForLab5 
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public testForLab5( String testName )
-    {
-        super( testName );
+
+
+public class testForLab5 extends lab5{
+    private lab5 lab;
+
+    @BeforeEach
+    public void setUp() {
+        lab = new lab5();
     }
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( testForLab5.class );
+    @Test
+    public void testRemoveExclamatorySentences() {
+        String inputText = "Hello, world! This is a test sentence. This is another test sentence. This is a test sentence with 5 words. This is a sentence!";
+        String expectedOutput = "This is a test sentence. This is another test sentence. This is a test sentence with 5 words.";
+        try {
+            assertEquals(expectedOutput, lab.removeExclamatorySentences(inputText, 5));
+        } catch (Exception e) {
+            fail("Unexpected exception thrown: " + e.getMessage());
+        }
     }
 
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
+    @Test
+    public void testRemoveExclamatorySentencesWithNoExclamations() {
+        String inputText = "This is a test sentence. This is another test sentence. This is a test sentence with 5 words.";
+        String expectedOutput = "This is a test sentence. This is another test sentence. This is a test sentence with 5 words.";
+        try {
+            assertEquals(expectedOutput, lab.removeExclamatorySentences(inputText, 5));
+        } catch (Exception e) {
+            fail("Unexpected exception thrown: " + e.getMessage());
+        }
+    }
+
+    @Test
+    public void testRemoveExclamatorySentencesWithNotEnoughWords() {
+        String inputText = "This is a sentence! This is a test sentence with 5 words.";
+        String expectedOutput = "This is a test sentence with 5 words.";
+        try {
+            assertEquals(expectedOutput, lab.removeExclamatorySentences(inputText, 5));
+        } catch (Exception e) {
+            fail("Unexpected exception thrown: " + e.getMessage());
+        }
+    }
+
+    @Test
+    public void testRemoveExclamatorySentencesWithEmptyInput() {
+        String inputText = "";
+        String expectedOutput = "";
+        try {
+            assertEquals(expectedOutput, lab.removeExclamatorySentences(inputText, 5));
+        } catch (Exception e) {
+            fail("Unexpected exception thrown: " + e.getMessage());
+        }
+    }
+
+    @Test
+    public void testRemoveExclamatorySentencesWithNullInput() {
+        String inputText = null;
+        try {
+            assertThrows(NullPointerException.class, () -> {
+                lab.removeExclamatorySentences(inputText, 5);
+            });
+        } catch (Exception e) {
+            fail("Unexpected exception thrown: " + e.getMessage());
+        }
     }
 }
