@@ -28,13 +28,13 @@ import java.util.regex.Pattern;
 <span class="fc bfc" id="L28" title="All 2 branches covered.">        for (String sentence : sentences) {</span>
 <span class="fc bfc" id="L29" title="All 2 branches covered.">            if (!isExclamatory(sentence)) {</span>
 <span class="fc" id="L30">                result.append(sentence).append(&quot; &quot;);</span>
-            } else {
+<span class="fc" id="L31">            } else {</span>
 <span class="fc" id="L32">                int wordCount = countWords(sentence);</span>
 <span class="pc bpc" id="L33" title="1 of 2 branches missed.">                if (wordCount &gt;= minWords) {</span>
 <span class="nc" id="L34">                    result.append(sentence).append(&quot; &quot;);</span>
                 }
             }
-<span class="fc" id="L37">        }</span>
+        }
 <span class="fc" id="L38">        return result.toString().trim();</span>
     }
 
@@ -45,7 +45,7 @@ import java.util.regex.Pattern;
 <span class="fc bfc" id="L45" title="All 2 branches covered.">        while (matcher.find()) {</span>
 <span class="fc" id="L46">            String sentence = matcher.group().trim();</span>
 <span class="fc" id="L47">            sentences.add(sentence);</span>
-<span class="fc" id="L48">        }</span>
+        }
 <span class="fc" id="L49">        return sentences;</span>
     }
 
@@ -70,14 +70,6 @@ import java.util.regex.Pattern;
     *
     * @param args command-line arguments (not used in this program)
     */
-    public static void main(String[] args) {
-<span class="nc" id="L74">        Lab5 lab = new Lab5();</span>
-<span class="nc" id="L75">        String text = &quot;Hello, world! This is a test sentence. &quot;</span>
-        + &quot;This is another test sentence.&quot;
-        + &quot;This is a test sentence with 5 words. &quot;
-        + &quot;This is a test sentence with 6 words!&quot;;
-<span class="nc" id="L79">        System.out.println(lab.removeExclamatorySentences(text, MINWORDS));</span>
-<span class="nc" id="L80">    }</span>
 }
 
 

@@ -70,14 +70,6 @@ public class Lab5 {
     *
     * @param args command-line arguments (not used in this program)
     */
-    public static void main(String[] args) {
-        Lab5 lab = new Lab5();
-        String text = "Hello, world! This is a test sentence. "
-        + "This is another test sentence."
-        + "This is a test sentence with 5 words. "
-        + "This is a test sentence with 6 words!";
-        System.out.println(lab.removeExclamatorySentences(text, MINWORDS));
-    }
 }
 
 
