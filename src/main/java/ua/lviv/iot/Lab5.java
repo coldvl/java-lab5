@@ -6,22 +6,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Lab5 {
-    /**
-    * The minimum number of words that an exclamatory
-    sentence must have in order to be included in the output.
-    */
-    private static final int MINWORDS = 5;
-
-    /**
-    * Removes exclamatory sentences from a given text
-    that have less than the specified minimum number of words.
-    *
-    * @param text the input text to remove exclamatory sentences from
-    * @param minWords the minimum number of words
-    that an exclamatory sentence must have to be kept in the result
-    * @return a string containing the input text
-    with exclamatory sentences removed
-    */
     public String removeExclamatorySentences(final String text, final int minWords) {
         List<String> sentences = getSentences(text);
         StringBuilder result = new StringBuilder();
@@ -62,14 +46,6 @@ public class Lab5 {
         }
         return count;
     }
-
-    /**
-    * Entry point of the program. Takes an input text,
-    removes exclamatory sentences with less than the specified minimum
-    * number of words, and prints the resulting text to the console.
-    *
-    * @param args command-line arguments (not used in this program)
-    */
 }
 
 
