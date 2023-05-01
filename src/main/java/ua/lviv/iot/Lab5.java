@@ -6,6 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Lab5 {
+
     public String removeExclamatorySentences(final String text, final int minWords) {
         List<String> sentences = getSentences(text);
         StringBuilder result = new StringBuilder();
@@ -24,8 +25,8 @@ public class Lab5 {
 
     private List<String> getSentences(final String text) {
         List<String> sentences = new ArrayList<>();
-        Pattern pattern = Pattern.compile("[^.!?]+[.!?]");
-        Matcher matcher = pattern.matcher(text);
+        Pattern regex = Pattern.compile("[^.!?]+[.!?]");
+        Matcher matcher = regex.matcher(text);
         while (matcher.find()) {
             String sentence = matcher.group().trim();
             sentences.add(sentence);
@@ -38,8 +39,8 @@ public class Lab5 {
     }
 
     private int countWords(final String sentence) {
-        Pattern pattern = Pattern.compile("\\w+");
-        Matcher matcher = pattern.matcher(sentence);
+        Pattern regex = Pattern.compile("\\w+");
+        Matcher matcher = regex.matcher(sentence);
         int count = 0;
         while (matcher.find()) {
             count++;
@@ -47,5 +48,3 @@ public class Lab5 {
         return count;
     }
 }
-
-
