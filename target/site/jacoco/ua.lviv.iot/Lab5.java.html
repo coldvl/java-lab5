@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Lab5.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">work</a> &gt; <a href="index.source.html" class="el_package">ua.lviv.iot</a> &gt; <span class="el_source">Lab5.java</span></div><h1>Lab5.java</h1><pre class="source lang-java linenums">package ua.lviv.iot;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+<span class="fc" id="L8">public class Lab5 {</span>
+    public String removeExclamatorySentences(String text, int minWords) {
+<span class="fc" id="L10">        List&lt;String&gt; sentences = getSentences(text);</span>
+<span class="fc" id="L11">        StringBuilder result = new StringBuilder();</span>
+<span class="fc bfc" id="L12" title="All 2 branches covered.">        for (String sentence : sentences) {</span>
+<span class="fc bfc" id="L13" title="All 2 branches covered.">            if (!isExclamatory(sentence)) {</span>
+<span class="fc" id="L14">                result.append(sentence).append(&quot; &quot;);</span>
+<span class="fc" id="L15">            } else {</span>
+<span class="fc" id="L16">                int wordCount = countWords(sentence);</span>
+<span class="pc bpc" id="L17" title="1 of 2 branches missed.">                if (wordCount &gt;= minWords) {</span>
+<span class="nc" id="L18">                    result.append(sentence).append(&quot; &quot;);</span>
+                }
+            }
+        }
+<span class="fc" id="L22">        return result.toString().trim();</span>
+    }
+
+    private List&lt;String&gt; getSentences(String text) {
+<span class="fc" id="L26">        List&lt;String&gt; sentences = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L27">        Pattern pattern = Pattern.compile(&quot;[^.!?]+[.!?]&quot;);</span>
+<span class="fc" id="L28">        Matcher matcher = pattern.matcher(text);</span>
+<span class="fc bfc" id="L29" title="All 2 branches covered.">        while (matcher.find()) {</span>
+<span class="fc" id="L30">            String sentence = matcher.group().trim();</span>
+<span class="fc" id="L31">            sentences.add(sentence);</span>
+        }
+<span class="fc" id="L33">        return sentences;</span>
+    }
+
+    private boolean isExclamatory(String sentence) {
+<span class="fc" id="L37">        return sentence.endsWith(&quot;!&quot;);</span>
+    }
+
+    private int countWords(String sentence) {
+<span class="fc" id="L41">        Pattern pattern = Pattern.compile(&quot;\\w+&quot;);</span>
+<span class="fc" id="L42">        Matcher matcher = pattern.matcher(sentence);</span>
+<span class="fc" id="L43">        int count = 0;</span>
+<span class="fc bfc" id="L44" title="All 2 branches covered.">        while (matcher.find()) {</span>
+<span class="fc" id="L45">            count++;</span>
+        }
+<span class="fc" id="L47">        return count;</span>
+    }
+
+    public static void main(String[] args) {
+<span class="nc" id="L51">        Lab5 lab = new Lab5();</span>
+<span class="nc" id="L52">        String text = &quot;Hello, world! This is a test sentence. This is another test sentence. This is a test sentence with 5 words. This is a test sentence with 6 words!&quot;;</span>
+<span class="nc" id="L53">        System.out.println(lab.removeExclamatorySentences(text, 5));</span>
+<span class="nc" id="L54">    }</span>
+}
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.9.202303310957</span></div></body></html>

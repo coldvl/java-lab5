@@ -6,12 +6,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 
-public class testForLab5 extends lab5{
-    private lab5 lab;
+public class Lab5Test extends Lab5{
+    private Lab5 lab;
 
     @BeforeEach
     public void setUp() {
-        lab = new lab5();
+        lab = new Lab5();
     }
 
     @Test
