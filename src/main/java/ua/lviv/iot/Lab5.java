@@ -6,7 +6,23 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Lab5 {
-    public String removeExclamatorySentences(String text, int minWords) {
+    /**
+    * The minimum number of words that an exclamatory
+    sentence must have in order to be included in the output.
+    */
+    private static final int MINWORDS = 5;
+
+    /**
+    * Removes exclamatory sentences from a given text
+    that have less than the specified minimum number of words.
+    *
+    * @param text the input text to remove exclamatory sentences from
+    * @param minWords the minimum number of words
+    that an exclamatory sentence must have to be kept in the result
+    * @return a string containing the input text
+    with exclamatory sentences removed
+    */
+    public String removeExclamatorySentences(final String text, final int minWords) {
         List<String> sentences = getSentences(text);
         StringBuilder result = new StringBuilder();
         for (String sentence : sentences) {
@@ -22,7 +38,7 @@ public class Lab5 {
         return result.toString().trim();
     }
 
-    private List<String> getSentences(String text) {
+    private List<String> getSentences(final String text) {
         List<String> sentences = new ArrayList<>();
         Pattern pattern = Pattern.compile("[^.!?]+[.!?]");
         Matcher matcher = pattern.matcher(text);
@@ -33,11 +49,11 @@ public class Lab5 {
         return sentences;
     }
 
-    private boolean isExclamatory(String sentence) {
+    private boolean isExclamatory(final String sentence) {
         return sentence.endsWith("!");
     }
 
-    private int countWords(String sentence) {
+    private int countWords(final String sentence) {
         Pattern pattern = Pattern.compile("\\w+");
         Matcher matcher = pattern.matcher(sentence);
         int count = 0;
@@ -47,10 +63,20 @@ public class Lab5 {
         return count;
     }
 
+    /**
+    * Entry point of the program. Takes an input text,
+    removes exclamatory sentences with less than the specified minimum
+    * number of words, and prints the resulting text to the console.
+    *
+    * @param args command-line arguments (not used in this program)
+    */
     public static void main(String[] args) {
         Lab5 lab = new Lab5();
-        String text = "Hello, world! This is a test sentence. This is another test sentence. This is a test sentence with 5 words. This is a test sentence with 6 words!";
-        System.out.println(lab.removeExclamatorySentences(text, 5));
+        String text = "Hello, world! This is a test sentence. "
+        + "This is another test sentence."
+        + "This is a test sentence with 5 words. "
+        + "This is a test sentence with 6 words!";
+        System.out.println(lab.removeExclamatorySentences(text, MINWORDS));
     }
 }
 

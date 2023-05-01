@@ -26,7 +26,7 @@ under the License.
     <copyright>&#169;2023</copyright>
     <item>
       <title>File: 1,
-             Errors: 13,
+             Errors: 3,
              Warnings: 0,
              Infos: 0
       </title>
@@ -46,7 +46,7 @@ under the License.
           <tbody>
                           <tr>
                 <td>
-                  <a href="http://maven.apache.org/checkstyle.html#ua.lviv.iot.lab5.java">ua/lviv/iot/lab5.java</a>
+                  <a href="http://maven.apache.org/checkstyle.html#ua.lviv.iot.Lab5.java">ua/lviv/iot/Lab5.java</a>
                 </td>
                 <td>
                   0
@@ -55,7 +55,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  13
+                  3
                 </td>
               </tr>
                       </tbody>

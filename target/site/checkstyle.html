@@ -40,7 +40,6 @@
      <li class="collapsed"><a href="project-info.html" title="Project Information">Project Information</a></li>
      <li class="expanded"><a href="project-reports.html" title="Project Reports">Project Reports</a>
       <ul>
-       <li class="none"><a href="spotbugs.html" title="SpotBugs">SpotBugs</a></li>
        <li class="none"><a href="cpd.html" title="CPD">CPD</a></li>
        <li class="none"><a href="pmd.html" title="PMD">PMD</a></li>
        <li class="none"><strong>Checkstyle</strong></li>
@@ -67,7 +66,7 @@
 <td>1</td>
 <td>0</td>
 <td>0</td>
-<td>13</td></tr></table></section><section>
+<td>3</td></tr></table></section><section>
 <h2><a name="Files"></a>Files</h2>
 <table border="0" class="bodyTable">
 <tr class="a">
@@ -76,10 +75,10 @@
 <th><figure><img src="images/icon_warning_sml.gif" alt="" /></figure>&#160;W</th>
 <th><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;E</th></tr>
 <tr class="b">
-<td><a href="#ua.lviv.iot.lab5.java">ua/lviv/iot/lab5.java</a></td>
+<td><a href="#ua.lviv.iot.Lab5.java">ua/lviv/iot/Lab5.java</a></td>
 <td>0</td>
 <td>0</td>
-<td>13</td></tr></table></section><section>
+<td>3</td></tr></table></section><section>
 <h2><a name="Rules"></a>Rules</h2>
 <table border="0" class="bodyTable">
 <tr class="a">
@@ -88,33 +87,13 @@
 <th>Violations</th>
 <th>Severity</th></tr>
 <tr class="b">
-<td>coding</td>
-<td><a class="externalLink" href="http://checkstyle.sourceforge.net/config_coding.html#MagicNumber">MagicNumber</a></td>
-<td>1</td>
-<td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td></tr>
-<tr class="a">
-<td>design</td>
-<td><a class="externalLink" href="http://checkstyle.sourceforge.net/config_design.html#DesignForExtension">DesignForExtension</a></td>
-<td>1</td>
-<td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td></tr>
-<tr class="b">
 <td>javadoc</td>
 <td><a class="externalLink" href="http://checkstyle.sourceforge.net/config_javadoc.html#JavadocPackage">JavadocPackage</a></td>
 <td>1</td>
 <td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td></tr>
 <tr class="a">
-<td></td>
-<td><a class="externalLink" href="http://checkstyle.sourceforge.net/config_javadoc.html#MissingJavadocMethod">MissingJavadocMethod</a></td>
-<td>2</td>
-<td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td></tr>
-<tr class="b">
 <td>misc</td>
 <td><a class="externalLink" href="http://checkstyle.sourceforge.net/config_misc.html#FinalParameters">FinalParameters</a></td>
-<td>6</td>
-<td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td></tr>
-<tr class="a">
-<td>naming</td>
-<td><a class="externalLink" href="http://checkstyle.sourceforge.net/config_naming.html#TypeName">TypeName</a></td>
 <td>1</td>
 <td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td></tr>
 <tr class="b">
@@ -125,7 +104,7 @@
 <td>1</td>
 <td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td></tr></table></section><section>
 <h2><a name="Details"></a>Details</h2><section>
-<h3 id="ua.lviv.iot.lab5.java">ua/lviv/iot/lab5.java</h3>
+<h3 id="ua.lviv.iot.Lab5.java">ua/lviv/iot/Lab5.java</h3>
 <table border="0" class="bodyTable">
 <tr class="a">
 <th>Severity</th>
@@ -141,76 +120,16 @@
 <td>1</td></tr>
 <tr class="a">
 <td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td>
-<td>naming</td>
-<td>TypeName</td>
-<td>Name 'lab5' must match pattern '^[A-Z][a-zA-Z0-9]*$'.</td>
-<td>8</td></tr>
-<tr class="b">
-<td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td>
-<td>design</td>
-<td>DesignForExtension</td>
-<td>Class 'lab5' looks like designed for extension (can be subclassed), but the method 'removeExclamatorySentences' does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class 'lab5' final or making the method 'removeExclamatorySentences' static/final/abstract/empty, or adding allowed annotation for the method.</td>
-<td>9</td></tr>
-<tr class="a">
-<td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td>
-<td>javadoc</td>
-<td>MissingJavadocMethod</td>
-<td>Missing a Javadoc comment.</td>
-<td>9</td></tr>
-<tr class="b">
-<td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td>
-<td>misc</td>
-<td>FinalParameters</td>
-<td>Parameter text should be final.</td>
-<td>9</td></tr>
-<tr class="a">
-<td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td>
-<td>misc</td>
-<td>FinalParameters</td>
-<td>Parameter minWords should be final.</td>
-<td>9</td></tr>
-<tr class="b">
-<td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td>
-<td>misc</td>
-<td>FinalParameters</td>
-<td>Parameter text should be final.</td>
+<td>sizes</td>
+<td>LineLength</td>
+<td>Line is longer than 80 characters (found 85).</td>
 <td>25</td></tr>
-<tr class="a">
-<td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td>
-<td>misc</td>
-<td>FinalParameters</td>
-<td>Parameter sentence should be final.</td>
-<td>36</td></tr>
-<tr class="b">
-<td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td>
-<td>misc</td>
-<td>FinalParameters</td>
-<td>Parameter sentence should be final.</td>
-<td>40</td></tr>
-<tr class="a">
-<td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td>
-<td>javadoc</td>
-<td>MissingJavadocMethod</td>
-<td>Missing a Javadoc comment.</td>
-<td>50</td></tr>
 <tr class="b">
 <td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td>
 <td>misc</td>
 <td>FinalParameters</td>
 <td>Parameter args should be final.</td>
-<td>50</td></tr>
-<tr class="a">
-<td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td>
-<td>sizes</td>
-<td>LineLength</td>
-<td>Line is longer than 80 characters (found 170).</td>
-<td>52</td></tr>
-<tr class="b">
-<td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td>
-<td>coding</td>
-<td>MagicNumber</td>
-<td>'5' is a magic number.</td>
-<td>53</td></tr></table></section></section>
+<td>73</td></tr></table></section></section>
       </div>
     </div>
     <div class="clear">

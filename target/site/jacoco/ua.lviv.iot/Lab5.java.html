@@ -6,52 +6,78 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 <span class="fc" id="L8">public class Lab5 {</span>
-    public String removeExclamatorySentences(String text, int minWords) {
-<span class="fc" id="L10">        List&lt;String&gt; sentences = getSentences(text);</span>
-<span class="fc" id="L11">        StringBuilder result = new StringBuilder();</span>
-<span class="fc bfc" id="L12" title="All 2 branches covered.">        for (String sentence : sentences) {</span>
-<span class="fc bfc" id="L13" title="All 2 branches covered.">            if (!isExclamatory(sentence)) {</span>
-<span class="fc" id="L14">                result.append(sentence).append(&quot; &quot;);</span>
-<span class="fc" id="L15">            } else {</span>
-<span class="fc" id="L16">                int wordCount = countWords(sentence);</span>
-<span class="pc bpc" id="L17" title="1 of 2 branches missed.">                if (wordCount &gt;= minWords) {</span>
-<span class="nc" id="L18">                    result.append(sentence).append(&quot; &quot;);</span>
+    /**
+    * The minimum number of words that an exclamatory
+    sentence must have in order to be included in the output.
+    */
+    private static final int MINWORDS = 5;
+
+    /**
+    * Removes exclamatory sentences from a given text
+    that have less than the specified minimum number of words.
+    *
+    * @param text the input text to remove exclamatory sentences from
+    * @param minWords the minimum number of words
+    that an exclamatory sentence must have to be kept in the result
+    * @return a string containing the input text
+    with exclamatory sentences removed
+    */
+    public String removeExclamatorySentences(final String text, final int minWords) {
+<span class="fc" id="L26">        List&lt;String&gt; sentences = getSentences(text);</span>
+<span class="fc" id="L27">        StringBuilder result = new StringBuilder();</span>
+<span class="fc bfc" id="L28" title="All 2 branches covered.">        for (String sentence : sentences) {</span>
+<span class="fc bfc" id="L29" title="All 2 branches covered.">            if (!isExclamatory(sentence)) {</span>
+<span class="fc" id="L30">                result.append(sentence).append(&quot; &quot;);</span>
+            } else {
+<span class="fc" id="L32">                int wordCount = countWords(sentence);</span>
+<span class="pc bpc" id="L33" title="1 of 2 branches missed.">                if (wordCount &gt;= minWords) {</span>
+<span class="nc" id="L34">                    result.append(sentence).append(&quot; &quot;);</span>
                 }
             }
+<span class="fc" id="L37">        }</span>
+<span class="fc" id="L38">        return result.toString().trim();</span>
+    }
+
+    private List&lt;String&gt; getSentences(final String text) {
+<span class="fc" id="L42">        List&lt;String&gt; sentences = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L43">        Pattern pattern = Pattern.compile(&quot;[^.!?]+[.!?]&quot;);</span>
+<span class="fc" id="L44">        Matcher matcher = pattern.matcher(text);</span>
+<span class="fc bfc" id="L45" title="All 2 branches covered.">        while (matcher.find()) {</span>
+<span class="fc" id="L46">            String sentence = matcher.group().trim();</span>
+<span class="fc" id="L47">            sentences.add(sentence);</span>
+<span class="fc" id="L48">        }</span>
+<span class="fc" id="L49">        return sentences;</span>
+    }
+
+    private boolean isExclamatory(final String sentence) {
+<span class="fc" id="L53">        return sentence.endsWith(&quot;!&quot;);</span>
+    }
+
+    private int countWords(final String sentence) {
+<span class="fc" id="L57">        Pattern pattern = Pattern.compile(&quot;\\w+&quot;);</span>
+<span class="fc" id="L58">        Matcher matcher = pattern.matcher(sentence);</span>
+<span class="fc" id="L59">        int count = 0;</span>
+<span class="fc bfc" id="L60" title="All 2 branches covered.">        while (matcher.find()) {</span>
+<span class="fc" id="L61">            count++;</span>
         }
-<span class="fc" id="L22">        return result.toString().trim();</span>
+<span class="fc" id="L63">        return count;</span>
     }
 
-    private List&lt;String&gt; getSentences(String text) {
-<span class="fc" id="L26">        List&lt;String&gt; sentences = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L27">        Pattern pattern = Pattern.compile(&quot;[^.!?]+[.!?]&quot;);</span>
-<span class="fc" id="L28">        Matcher matcher = pattern.matcher(text);</span>
-<span class="fc bfc" id="L29" title="All 2 branches covered.">        while (matcher.find()) {</span>
-<span class="fc" id="L30">            String sentence = matcher.group().trim();</span>
-<span class="fc" id="L31">            sentences.add(sentence);</span>
-        }
-<span class="fc" id="L33">        return sentences;</span>
-    }
-
-    private boolean isExclamatory(String sentence) {
-<span class="fc" id="L37">        return sentence.endsWith(&quot;!&quot;);</span>
-    }
-
-    private int countWords(String sentence) {
-<span class="fc" id="L41">        Pattern pattern = Pattern.compile(&quot;\\w+&quot;);</span>
-<span class="fc" id="L42">        Matcher matcher = pattern.matcher(sentence);</span>
-<span class="fc" id="L43">        int count = 0;</span>
-<span class="fc bfc" id="L44" title="All 2 branches covered.">        while (matcher.find()) {</span>
-<span class="fc" id="L45">            count++;</span>
-        }
-<span class="fc" id="L47">        return count;</span>
-    }
-
+    /**
+    * Entry point of the program. Takes an input text,
+    removes exclamatory sentences with less than the specified minimum
+    * number of words, and prints the resulting text to the console.
+    *
+    * @param args command-line arguments (not used in this program)
+    */
     public static void main(String[] args) {
-<span class="nc" id="L51">        Lab5 lab = new Lab5();</span>
-<span class="nc" id="L52">        String text = &quot;Hello, world! This is a test sentence. This is another test sentence. This is a test sentence with 5 words. This is a test sentence with 6 words!&quot;;</span>
-<span class="nc" id="L53">        System.out.println(lab.removeExclamatorySentences(text, 5));</span>
-<span class="nc" id="L54">    }</span>
+<span class="nc" id="L74">        Lab5 lab = new Lab5();</span>
+<span class="nc" id="L75">        String text = &quot;Hello, world! This is a test sentence. &quot;</span>
+        + &quot;This is another test sentence.&quot;
+        + &quot;This is a test sentence with 5 words. &quot;
+        + &quot;This is a test sentence with 6 words!&quot;;
+<span class="nc" id="L79">        System.out.println(lab.removeExclamatorySentences(text, MINWORDS));</span>
+<span class="nc" id="L80">    }</span>
 }
 
 

@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: ua.lviv.iot.Lab5Test
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.266 s - in ua.lviv.iot.Lab5Test
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.196 s - in ua.lviv.iot.Lab5Test
